@@ -1,4 +1,4 @@
-This is a sample project to go with the article "[DropDownListFor with Dictionaries in ASP.NET MVC and why SelectList wants to kill you][1]"
+This is a sample project to go with the article "[How to use Bootstrap 3 validation states with ASP.NET MVC Forms][1]"
 
 [1]:http://nimblegecko.com/how-to-use-bootstrap-3-validation-states-with-asp-net-mvc-forms/
 

@@ -1,4 +1,4 @@
-﻿@model Dropdowns.Models.UserProfileModel
+﻿@model global::Validation.Models.UserProfileModel
 
 @{ ViewBag.Title = "Your profile"; }
 
@@ -9,7 +9,7 @@
 
         <div class="panel panel-default">
             <div class="panel-body">
-                @using (Html.BeginForm("UserProfile", "Profile", FormMethod.Post, new { role = "form" })) {
+                @using (Html.BeginForm("UserProfile", "Profile", FormMethod.Post, new { role = "form", id="userForm" })) {
 
                     @* First Name textbox *@
                     <div class="form-group">
@@ -50,8 +50,30 @@
     </div>
 </div>
 <script>
-    (function($) {
+    // No client-side validation 
+    /*
+    $(document).ready(function() {
         $('.input-validation-error').parents('.form-group').addClass('has-error');
         $('.field-validation-error').addClass('text-danger');
-    })(jQuery);
+    });*/
+
+    // Unobtrusive validation
+    $(document).ready(function () {
+        var form = $('#userForm')
+          , formData = $.data(form[0])
+          , settings = formData.validator.settings
+          , oldErrorPlacement = settings.errorPlacement
+          , oldSuccess = settings.success;
+
+        settings.errorPlacement = function(label, element) {
+            oldErrorPlacement(label, element);
+            label.parents('.form-group').addClass('has-error');
+            label.addClass('text-danger');
+        };
+
+        settings.success = function(label) {
+            label.parents('.form-group').removeClass('has-error');
+            oldSuccess(label);
+        };
+    });
 </script>

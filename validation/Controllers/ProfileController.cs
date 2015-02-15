@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Dropdowns.Models;
+using Validation.Models;
 
-namespace Dropdowns.Controllers
+namespace Validation.Controllers
 {
     public class ProfileController : Controller
     {

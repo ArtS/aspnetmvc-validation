@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace Dropdowns.Models
+namespace Validation.Models
 {
     public class UserProfileModel
     {
